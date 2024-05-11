@@ -32,6 +32,5 @@ public class Main {
         System.out.println("Deleting at an Index: Zero-Based Indexing");
         singlyLinkedList.deleteAtIndex(4);
         singlyLinkedList.printList();
-
     }
 }
