@@ -41,28 +41,10 @@ class SinglyLinkedList {
         }
     }
 
-    public void insertAfterAnIndex(Integer position, Object data) {
-
-        if (position < 0 || position > getSize()  - 1)
-            throw new IndexOutOfBoundsException("Position input is invalid");
-
-        int i = 0;
-        var temp = head;
-        var newNode = new Node<>(data);
-
-        while (i != position) {
-            temp = temp.next;
-            i++;
-        }
-
-        newNode.next = temp.next;
-        temp.next = newNode;
-    }
-
     public void insertAtIndex(Integer position, Object data) {
 
         if (position < 0 || position > getSize())
-            throw new IndexOutOfBoundsException("Position input is invalid");
+            throw new IndexOutOfBoundsException("Position input is invalid: Check Underflow/Overflow Condition");
 
         int i = 0;
         var temp = head;
@@ -75,6 +57,44 @@ class SinglyLinkedList {
 
         newNode.next = temp.next;
         temp.next = newNode;
+    }
+
+    public void deleteAtStart() {
+        if (Objects.isNull(head)) throw new RuntimeException("Underflow Condition");
+
+        var temp = head;
+        head = temp.next;
+        temp.next = null;
+    }
+
+    public void deleteAtEnd() {
+        if (Objects.isNull(head)) throw new RuntimeException("Underflow Condition");
+
+        var temp = head;
+        while (!Objects.isNull(temp.next.next)) {
+            temp = temp.next;
+        }
+
+        temp.next = null;
+    }
+
+    public void deleteAtIndex(Integer position) {
+        if (Objects.isNull(head) || position > getSize())
+            throw new IndexOutOfBoundsException("Position input is invalid: Check Underflow/Overflow Condition");
+
+
+        var i = 0;
+        var temp = head;
+        Node<Object> prev = null;
+        while (i != position) {
+            prev = temp;
+            temp = temp.next;
+            i++;
+        }
+
+        assert prev != null;
+        prev.next = temp.next;
+        temp.next = null;
     }
 
     public Integer getSize() {
