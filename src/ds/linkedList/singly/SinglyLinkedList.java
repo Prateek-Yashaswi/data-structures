@@ -6,7 +6,7 @@ class SinglyLinkedList {
 
     static class Node<T> {
         T data;
-        Node<Object> next;
+        Node<T> next;
 
         Node(T data) {
             this.data = data;
