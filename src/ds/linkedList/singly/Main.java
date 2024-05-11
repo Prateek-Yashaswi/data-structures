@@ -8,10 +8,9 @@ public class Main {
         List<Integer> data = IntStream.rangeClosed(1, 10).boxed().toList();
 
         System.out.println("Inserting elements at the beginning");
-        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        SinglyLinkedList<Integer> singlyLinkedList = new SinglyLinkedList<>();
         data.forEach(singlyLinkedList::insertAtStart);
         singlyLinkedList.printList();
-
 
         System.out.println("Inserting elements at the end");
         singlyLinkedList.insertAtEnd(11);

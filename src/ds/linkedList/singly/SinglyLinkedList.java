@@ -2,11 +2,11 @@ package ds.linkedList.singly;
 
 import java.util.Objects;
 
-class SinglyLinkedList {
+class SinglyLinkedList<T> {
 
-    static class Node<T> {
+    class Node {
         T data;
-        Node<T> next;
+        Node next;
 
         Node(T data) {
             this.data = data;
@@ -14,10 +14,10 @@ class SinglyLinkedList {
         }
     }
 
-    private Node<Object> head;
+    private Node head;
 
-    public void insertAtStart(Object data) {
-        var newNode = new Node<>(data);
+    public void insertAtStart(T data) {
+        var newNode = new Node(data);
 
         if (!Objects.isNull(head)) {
             newNode.next = head;
@@ -26,8 +26,8 @@ class SinglyLinkedList {
         head = newNode;
     }
 
-    public void insertAtEnd(Object data) {
-        var newNode = new Node<>(data);
+    public void insertAtEnd(T data) {
+        var newNode = new Node(data);
 
         if (Objects.isNull(head)) {
             head = newNode;
@@ -41,14 +41,14 @@ class SinglyLinkedList {
         }
     }
 
-    public void insertAtIndex(Integer position, Object data) {
+    public void insertAtIndex(Integer position, T data) {
 
         if (position < 0 || position > getSize())
             throw new IndexOutOfBoundsException("Position input is invalid: Check Underflow/Overflow Condition");
 
         int i = 0;
         var temp = head;
-        var newNode = new Node<>(data);
+        var newNode = new Node(data);
 
         while (i != position - 1) {
             temp = temp.next;
@@ -85,7 +85,7 @@ class SinglyLinkedList {
 
         var i = 0;
         var temp = head;
-        Node<Object> prev = null;
+        Node prev = null;
         while (i != position) {
             prev = temp;
             temp = temp.next;
@@ -111,7 +111,7 @@ class SinglyLinkedList {
     }
 
     public void printList() {
-        Node<Object> temp = head;
+        var temp = head;
         while (!Objects.isNull(temp.next)) {
             System.out.print(temp.data + " -> ");
             temp = temp.next;
