@@ -36,6 +36,7 @@ public class Main {
         DoublyLinkedList<Integer> dll2 = new DoublyLinkedList<>();
         dll2.insertAtEnd(1);
         dll2.printList();
+        System.out.println("Deleting at start");
         dll2.deleteAtStart();
         dll2.printList();
     }
