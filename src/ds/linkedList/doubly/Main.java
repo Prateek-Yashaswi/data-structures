@@ -31,5 +31,12 @@ public class Main {
         System.out.println("Deleting at an index: Zero Based Indexing");
         dll.deleteAtIndex(6);
         dll.printList();
+
+        System.out.println("Doubly Linked List with only 1 element");
+        DoublyLinkedList<Integer> dll2 = new DoublyLinkedList<>();
+        dll2.insertAtEnd(1);
+        dll2.printList();
+        dll2.deleteAtStart();
+        dll2.printList();
     }
 }

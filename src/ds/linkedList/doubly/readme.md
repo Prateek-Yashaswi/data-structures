@@ -29,4 +29,12 @@ Printing using prev pointer:	9 <- 8 <- 7 <- 1002 <- 6 <- 5 <- 4 <- 3 <- 2 <- 1 <
 Deleting at an index: Zero Based Indexing
 Printing using next pointer:	1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 
 Printing using prev pointer:	9 <- 8 <- 7 <- 6 <- 5 <- 4 <- 3 <- 2 <- 1 <- 
+
+
+Doubly Linked List with only 1 element
+Printing using next pointer:	1 -> 
+Printing using prev pointer:	1 <- 
+
+
+EMPTY LIST
 ```

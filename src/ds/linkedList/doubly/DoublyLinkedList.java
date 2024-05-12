@@ -69,21 +69,33 @@ public class DoublyLinkedList<T> {
     }
 
     public void deleteFromEnd() {
-        var temp = Objects.requireNonNull(head);
-        while (!Objects.isNull(temp.next.next)) {
-            temp = temp.next;
-        }
+        if (getSize() == 1) {
+            head = null;
+        } else {
+            var temp = Objects.requireNonNull(head);
+            Node slow = head;
+            while (!Objects.isNull(temp.next)) {
+                slow = temp;
+                temp = temp.next;
+            }
 
-        temp.next = null;
+            // If there is only 1 element in the Doubly Linked List
+            slow.next = null;
+            temp.prev = null;
+        }
     }
 
     public void deleteAtStart() {
-        var temp = Objects.requireNonNull(head);
-        head = head.next;
-        head.prev = null;
+        if (getSize() == 1) {
+            head = null;
+        } else {
+            var temp = Objects.requireNonNull(head);
+            head = head.next;
+            head.prev = null;
 
-        temp.next = null;
-        temp.prev = null; // Not needed since it will always be null since it's head node
+            temp.next = null;
+            temp.prev = null; // Not needed since it will always be null since it's head node
+        }
     }
 
     public void deleteAtIndex(Integer index) {
@@ -128,22 +140,25 @@ public class DoublyLinkedList<T> {
     }
 
     public void printList() {
-        var temp = head;
-        Node rev = null;
+        if (getSize() == 0) System.out.println("EMPTY LIST");
+        else {
+            var temp = Objects.requireNonNull(head);
+            Node rev = null;
 
-        System.out.print("Printing using next pointer:\t");
-        while (!Objects.isNull(temp)) {
-            if (temp.next == null) rev = temp;
-            System.out.print(temp.data + " -> ");
-            temp = temp.next;
+            System.out.print("Printing using next pointer:\t");
+            while (!Objects.isNull(temp)) {
+                if (temp.next == null) rev = temp;
+                System.out.print(temp.data + " -> ");
+                temp = temp.next;
+            }
+
+            System.out.print("\nPrinting using prev pointer:\t");
+            while (!Objects.isNull(rev)) {
+                System.out.print(rev.data + " <- ");
+                rev = rev.prev;
+            }
+
+            System.out.println("\n\n");
         }
-
-        System.out.print("\nPrinting using prev pointer:\t");
-        while (!Objects.isNull(rev)) {
-            System.out.print(rev.data + " <- ");
-            rev = rev.prev;
-        }
-
-        System.out.println("\n\n");
     }
 }
