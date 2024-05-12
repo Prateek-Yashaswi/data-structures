@@ -41,20 +41,16 @@ public class NormalStack<T> {
         return stack[top];
     }
 
-    public Integer getSize() {
-        return (int) Arrays.stream(stack).filter(Objects::nonNull).count();
-    }
-
     public Boolean isEmpty() {
-        return Objects.equals(getSize(), 0);
+        return top == -1;
     }
 
     public Boolean isFull() {
-        return Objects.equals(getSize(), capacity);
+        return top == capacity - 1;
     }
 
     public void printStack() {
-        if (getSize() == 0)
+        if (isEmpty())
             System.out.println("\nEMPTY STACK");
         else {
             Arrays.stream(stack).filter(Objects::nonNull).forEach(item -> System.out.print("|" + item + "|\t"));
