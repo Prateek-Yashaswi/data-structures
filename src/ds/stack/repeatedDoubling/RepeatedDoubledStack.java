@@ -60,7 +60,7 @@ public class RepeatedDoubledStack<T> {
     }
 
     public Integer getSize() {
-        return stack.length;
+        return currentCapacity;
     }
 
     @SuppressWarnings("unchecked")
