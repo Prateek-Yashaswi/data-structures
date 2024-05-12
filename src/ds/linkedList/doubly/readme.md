@@ -36,5 +36,6 @@ Printing using next pointer:	1 ->
 Printing using prev pointer:	1 <- 
 
 
+Deleting at start
 EMPTY LIST
 ```
