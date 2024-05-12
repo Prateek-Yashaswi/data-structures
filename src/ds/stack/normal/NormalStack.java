@@ -58,7 +58,7 @@ public class NormalStack<T> {
             System.out.println("\nEMPTY STACK");
         else {
             Arrays.stream(stack).filter(Objects::nonNull).forEach(item -> System.out.print("|" + item + "|\t"));
-            System.out.println("<----------");
+            System.out.println("<-----TOP-----");
         }
     }
 }
