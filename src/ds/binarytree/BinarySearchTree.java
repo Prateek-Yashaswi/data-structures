@@ -30,6 +30,12 @@ public class BinarySearchTree {
         return search(root.left, target);
     }
 
+    public Integer findHeight(Node root) {
+        if (Objects.isNull(root)) return 0;
+
+        return Math.max(findHeight(root.left), findHeight(root.right)) + 1;
+    }
+
     public void printInOrder(Node root) {
         if (Objects.nonNull(root)) {
             printInOrder(root.left);

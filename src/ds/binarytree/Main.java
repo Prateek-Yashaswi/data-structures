@@ -35,5 +35,8 @@ public class Main {
 
         System.out.println("\nBREADTH FIRST SEARCH / LEVEL ORDER TRAVERSAL");
         tree.levelOrderTraversal(root);
+
+        System.out.println("\n\nHEIGHT OF THE TREE");
+        System.out.println(tree.findHeight(root));
     }
 }
