@@ -13,13 +13,13 @@ public class Main {
         tree.insert(root, 1);
         tree.insert(root, 7);
 
-        System.out.println("\n---------------- PRINTING INORDER ----------------");
+        System.out.println("\n---- PRINTING INORDER - DEPTH FIRST TRAVERSAL ----");
         tree.printInOrder(root);
 
-        System.out.println("\n---------------- PRINTING POSTORDER --------------");
+        System.out.println("\n--- PRINTING POSTORDER - DEPTH FIRST TRAVERSAL ---");
         tree.printPostOrder(root);
 
-        System.out.println("\n---------------- PRINTING PREORDER ---------------");
+        System.out.println("\n---- PRINTING PREORDER - DEPTH FIRST TRAVERSAL ---");
         tree.printPreOrder(root);
 
         System.out.println("\n---------------- SEARCHING IN TREE ---------------");
@@ -32,5 +32,8 @@ public class Main {
 
         System.out.println("\n----------- COUNTING LEAVES OF THE TREE ----------");
         System.out.println(tree.countLeaves(root));
+
+        System.out.println("\nBREADTH FIRST SEARCH / LEVEL ORDER TRAVERSAL");
+        tree.levelOrderTraversal(root);
     }
 }

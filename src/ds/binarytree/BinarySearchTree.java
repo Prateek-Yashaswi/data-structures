@@ -1,14 +1,10 @@
 package ds.binarytree;
 
+import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Queue;
 
 public class BinarySearchTree {
-
-    public Node root;
-
-    public BinarySearchTree() {
-        this.root = null;
-    }
 
     public Node insert(Node node, Integer data) {
         Node newNode = new Node(data);
@@ -78,6 +74,27 @@ public class BinarySearchTree {
             return 1;
         } else {
             return countLeaves(root.left) + countLeaves(root.right);
+        }
+    }
+
+    public void levelOrderTraversal(Node root) {
+        if (root == null) {
+            return;
+        }
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            var node = queue.poll();
+            System.out.print(node.data + " ");
+
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
         }
     }
 }
