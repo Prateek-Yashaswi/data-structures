@@ -31,5 +31,26 @@ public class Main {
         System.out.println("Deleting at an Index: Zero-Based Indexing");
         singlyLinkedList.deleteAtIndex(4);
         singlyLinkedList.printList();
+
+        System.out.println("PRINTING MIDDLE ELEMENT");
+        System.out.println(singlyLinkedList.findMiddle());
+
+        System.out.println("\nREVERSING");
+        singlyLinkedList.reverse();
+        singlyLinkedList.printList();
+
+        System.out.println("INSERTING DUPLICATES");
+        singlyLinkedList.insertAtIndex(2,3);
+        singlyLinkedList.insertAtIndex(2,3);
+        singlyLinkedList.insertAtIndex(2,3);
+        singlyLinkedList.insertAtIndex(8, 7);
+        singlyLinkedList.printList();
+        System.out.println("REMOVING DUPLICATES");
+        singlyLinkedList.removeDuplicates();
+        singlyLinkedList.printList();
+
+        int n = 4;
+        System.out.println("PRINTING ELEMENT FROM END: " + n);
+        System.out.println(singlyLinkedList.nFromEnd(n));
     }
 }

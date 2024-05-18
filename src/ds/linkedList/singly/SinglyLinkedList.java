@@ -1,5 +1,7 @@
 package ds.linkedList.singly;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 class SinglyLinkedList<T> {
@@ -108,6 +110,78 @@ class SinglyLinkedList<T> {
         }
 
         return i;
+    }
+
+    public T findMiddle() {
+        if (Objects.isNull(head)) throw new RuntimeException();
+
+        Node fast = head;
+        Node slow = head;
+
+        while (fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        return slow.data;
+    }
+
+    public void reverse() {
+        if (Objects.isNull(head)) throw new RuntimeException();
+
+        Node prev = null;
+        Node curr = head;
+        Node next;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+
+            prev = curr;
+            curr = next;
+        }
+
+        head = prev;
+    }
+
+    public void removeDuplicates() {
+        if (Objects.isNull(head)) throw new RuntimeException();
+
+        List<T> visited = new ArrayList<>();
+        Node temp = head;
+
+        while (temp.next != null) {
+            if (!visited.contains(temp.data)) visited.add(temp.data);
+            else {
+                Node temp2 = temp;
+                while (temp2.data == temp.data && temp2.next != null) {
+                    temp2 = temp2.next;
+                }
+
+                temp.next = temp2;
+                temp = temp.next;
+            }
+        }
+    }
+
+    public T nFromEnd(Integer n) {
+        int i = 1;
+        Node temp = head;
+        while (i != n) {
+            temp = temp.next;
+            i++;
+            if (temp == null) {
+                throw new RuntimeException("List is not long enough");
+            }
+        }
+
+        Node slow = head;
+        while (temp.next != null) {
+            slow = slow.next;
+            temp = temp.next;
+        }
+
+        return slow.data;
     }
 
     public void printList() {
