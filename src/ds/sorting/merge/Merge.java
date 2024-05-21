@@ -28,6 +28,7 @@ public class Merge {
         System.out.println("\n\nTOTAL TIME TAKEN TO SORT " + arr.length + " ITEMS: " + Duration.between(startedAt, endedAt).toMillis() + " Milliseconds");
     }
 
+    // Merge Sort Algorithm
     private static void mergeSort(int[] arr) {
         int inputLen = arr.length;
 
@@ -54,6 +55,7 @@ public class Merge {
         mergeResults(arr, left, right);
     }
 
+    // Merge Algorithm
     private static void mergeResults(int[] arr, int[] left, int[] right) {
         int leftLen = left.length;
         int rightLen = right.length;

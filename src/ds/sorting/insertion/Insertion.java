@@ -21,6 +21,7 @@ public class Insertion {
 
         LocalDateTime startedAt = LocalDateTime.now();
 
+        // Insertion Sort Algorithm
         for (int i = 1; i < arr.length; i++) {
             int curr = arr[i];
             int j = i - 1;
