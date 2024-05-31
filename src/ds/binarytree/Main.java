@@ -13,6 +13,14 @@ public class Main {
         tree.insert(root, 1);
         tree.insert(root, 7);
 
+        System.out.println("""
+                           10
+                          / \\
+                        5    20
+                       / \\    \\
+                      1    7    50
+                """);
+
         System.out.println("\n---- PRINTING INORDER - DEPTH FIRST TRAVERSAL ----");
         tree.printInOrder(root);
 
@@ -38,5 +46,11 @@ public class Main {
 
         System.out.println("\n\nHEIGHT OF THE TREE");
         System.out.println(tree.findHeight(root));
+
+        System.out.println("\n\nMIN HEIGHT OF THE TREE");
+        System.out.println(tree.minHeight(root));
+
+        System.out.println("\n\nCHECK IF ANY PATH FROM ROOT To LEAF OF THE TREE SUMS UP TO TARGET: 80 (10 + 20 + 50)");
+        System.out.println(tree.hasPathSum(root, 80));
     }
 }

@@ -30,10 +30,37 @@ public class BinarySearchTree {
         return search(root.left, target);
     }
 
+    // Or Depth (Maximum)
     public Integer findHeight(Node root) {
         if (Objects.isNull(root)) return 0;
 
         return Math.max(findHeight(root.left), findHeight(root.right)) + 1;
+    }
+
+    // Or Depth
+    public Integer minHeight(Node root) {
+        if (Objects.isNull(root)) return 0;
+
+        // If the node is a leaf node
+        if (root.left == null && root.right == null) return 1;
+
+        // If the left subtree is null, we need to consider the right subtree only
+        if (root.left == null) return minHeight(root.right) + 1;
+
+            // If the right subtree is null, we need to consider the left subtree only
+        else if (root.right == null) return minHeight(root.left) + 1;
+
+        // If both subtrees are present, return the minimum depth of both subtrees + 1
+        return Math.min(minHeight(root.left), minHeight(root.right)) + 1;
+    }
+
+    public Boolean hasPathSum(Node root, Integer target) {
+        if (Objects.isNull(root)) return false;
+
+        if (Objects.isNull(root.left) && Objects.isNull(root.right)) return Objects.equals(root.data, target);
+
+        int newTarget = target - root.data;
+        return hasPathSum(root.left, newTarget) || hasPathSum(root.right, newTarget);
     }
 
     public void printInOrder(Node root) {
@@ -102,5 +129,27 @@ public class BinarySearchTree {
                 queue.add(node.right);
             }
         }
+    }
+
+    private boolean areTwoTreesSame(Node root1, Node root2) {
+        if (root1 == null && root2 == null) return true;
+        if (root1 == null || root2 == null) return false;
+        if (!Objects.equals(root1.data, root2.data)) return false;
+
+        return areTwoTreesSame(root1.left, root2.left) && areTwoTreesSame(root1.right, root2.right);
+    }
+
+    public boolean isSymmetric(Node root) {
+        if (root == null) return true;
+        return checkIfSymmetric(root.left, root.right);
+    }
+
+    private static boolean checkIfSymmetric(Node left, Node right) {
+        if (left == null && right == null) return true;
+        if (left == null || right == null) return false;
+
+        return Objects.equals(left.data, right.data) &&
+                checkIfSymmetric(left.left, right.right) &&
+                checkIfSymmetric(right.left, left.right);
     }
 }

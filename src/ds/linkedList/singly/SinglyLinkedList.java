@@ -184,6 +184,46 @@ class SinglyLinkedList<T> {
         return slow.data;
     }
 
+    // https://www.youtube.com/watch?v=PvrxZaH_eZ4
+    // Floyd's Tortoise and Hare algorithm
+    private Node getIntersectionNode(Node headA, Node headB) {
+        if (headA == null || headB == null) return null;
+
+        Node pointerA = headA;
+        Node pointerB = headB;
+
+        while (pointerA != pointerB) {
+            pointerA = pointerA == null ? headB : pointerA.next;
+            pointerB = pointerB == null ? headA : pointerB.next;
+        }
+
+        return pointerA;
+    }
+
+    private Node findIntersectionNodeInALinkedList(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        // Detect Cycle - Floyd's tortoise and hare algorithm
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            // Find Start of the cycle
+            if (slow == fast) {
+                Node start = head;
+                while (start != slow) {
+                    start = start.next;
+                    slow = slow.next;
+                }
+
+                return start; // The start of the cycle
+            }
+        }
+
+        return null;
+    }
+
     public void printList() {
         var temp = head;
         while (!Objects.isNull(temp.next)) {
