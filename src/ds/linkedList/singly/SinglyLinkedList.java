@@ -99,6 +99,39 @@ class SinglyLinkedList<T> {
         temp.next = null;
     }
 
+    public void removeAllKeys(T key) {
+        System.out.println("Removing All Keys: " + key);
+        if (Objects.isNull(head)) {
+            System.out.println("No Elements in the Linked List");
+            return;
+        }
+
+        // Case: Head Nodes Contains Key
+        while (Objects.nonNull(head) && head.data == key) {
+            var temp = head;
+            head = head.next;
+            temp.next = null;
+        }
+
+        if (Objects.isNull(head)) return;
+
+        // Case: Other Nodes Contains Key
+        var slow = head;
+        var fast = head.next;
+
+        while (Objects.nonNull(fast)) {
+            if (fast.data == key) {
+                while (Objects.nonNull(fast) && fast.data == key) fast = fast.next;
+                slow.next = fast;
+            }
+
+            if (Objects.nonNull(fast)) {
+                slow = fast;
+                fast = fast.next;
+            }
+        }
+    }
+
     public Integer getSize() {
         if (Objects.isNull(head)) return 0;
 
@@ -186,6 +219,7 @@ class SinglyLinkedList<T> {
 
     // https://www.youtube.com/watch?v=PvrxZaH_eZ4
     // Floyd's Tortoise and Hare algorithm
+    @SuppressWarnings("unused")
     private Node getIntersectionNode(Node headA, Node headB) {
         if (headA == null || headB == null) return null;
 
@@ -200,6 +234,7 @@ class SinglyLinkedList<T> {
         return pointerA;
     }
 
+    @SuppressWarnings("unused")
     private Node findIntersectionNodeInALinkedList(Node head) {
         Node slow = head;
         Node fast = head;

@@ -131,6 +131,7 @@ public class BinarySearchTree {
         }
     }
 
+    @SuppressWarnings("unused")
     private boolean areTwoTreesSame(Node root1, Node root2) {
         if (root1 == null && root2 == null) return true;
         if (root1 == null || root2 == null) return false;
@@ -139,6 +140,7 @@ public class BinarySearchTree {
         return areTwoTreesSame(root1.left, root2.left) && areTwoTreesSame(root1.right, root2.right);
     }
 
+    @SuppressWarnings("unused")
     public boolean isSymmetric(Node root) {
         if (root == null) return true;
         return checkIfSymmetric(root.left, root.right);

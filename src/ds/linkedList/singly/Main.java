@@ -45,6 +45,11 @@ public class Main {
         singlyLinkedList.insertAtIndex(2,3);
         singlyLinkedList.insertAtIndex(8, 7);
         singlyLinkedList.printList();
+
+        int val = 3;
+        singlyLinkedList.removeAllKeys(val);
+        singlyLinkedList.printList();
+
         System.out.println("REMOVING DUPLICATES");
         singlyLinkedList.removeDuplicates();
         singlyLinkedList.printList();
