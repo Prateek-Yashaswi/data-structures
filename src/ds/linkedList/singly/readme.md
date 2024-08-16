@@ -28,8 +28,11 @@ REVERSING
 INSERTING DUPLICATES
 1 -> 2 -> 3 -> 3 -> 3 -> 3 -> 4 -> 5 -> 7 -> 7 -> 8 -> 1002 -> 9
 
+Removing All Keys: 3
+1 -> 2 -> 4 -> 5 -> 7 -> 7 -> 8 -> 1002 -> 9
+
 REMOVING DUPLICATES
-1 -> 2 -> 3 -> 4 -> 5 -> 7 -> 8 -> 1002 -> 9
+1 -> 2 -> 4 -> 5 -> 7 -> 8 -> 1002 -> 9
 
 PRINTING ELEMENT FROM END: 4
 7
