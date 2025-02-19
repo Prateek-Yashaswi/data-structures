@@ -146,6 +146,15 @@ public class BinarySearchTree {
         return checkIfSymmetric(root.left, root.right);
     }
 
+    public int sumOfLeftLeaves(Node root) {
+        if (Objects.isNull(root)) return 0;
+        if (Objects.nonNull(root.left) && Objects.isNull(root.left.left) && Objects.isNull(root.left.right)) {
+            return root.left.data + sumOfLeftLeaves(root.right);
+        }
+
+        return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+    }
+
     private static boolean checkIfSymmetric(Node left, Node right) {
         if (left == null && right == null) return true;
         if (left == null || right == null) return false;

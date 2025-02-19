@@ -52,5 +52,8 @@ public class Main {
 
         System.out.println("\n\nCHECK IF ANY PATH FROM ROOT To LEAF OF THE TREE SUMS UP TO TARGET: 80 (10 + 20 + 50)");
         System.out.println(tree.hasPathSum(root, 80));
+
+        System.out.println("\n\nSUMMING UP LEFT LEAVES");
+        System.out.println(tree.sumOfLeftLeaves(root));
     }
 }
