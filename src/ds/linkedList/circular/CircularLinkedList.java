@@ -3,9 +3,9 @@ package ds.linkedList.circular;
 @SuppressWarnings("all")
 public class CircularLinkedList {
 
-    private static class Node {
-        int data;
-        Node next;
+    public static class Node {
+        public int data;
+        public Node next;
 
         public Node(int data) {
             this.data = data;
@@ -14,6 +14,10 @@ public class CircularLinkedList {
     }
 
     private Node head;
+
+    public Node getHead() {
+        return head;
+    }
 
     public void append(int data) {
         var newNode = new Node(data);
