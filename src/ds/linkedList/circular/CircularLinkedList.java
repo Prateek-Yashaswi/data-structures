@@ -119,6 +119,29 @@ public class CircularLinkedList {
         System.out.println("Node with value " + data + " not found.");
     }
 
+    public boolean isEmpty() {
+        return head == null;
+    }
+
+    public int size() {
+        if (head == null) {
+            return 0;
+        }
+
+        if (head.next == head) {
+            return 1;
+        }
+
+        var temp = head;
+        var len = 1;
+        while (temp.next != head) {
+            temp = temp.next;
+            len++;
+        }
+
+        return len;
+    }
+
     public void display() {
         System.out.println("-----------------------------------------------");
         System.out.println("Printing Circular Linked List");
