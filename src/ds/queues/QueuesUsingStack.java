@@ -2,9 +2,10 @@ package ds.queues;
 
 import java.util.Stack;
 
+@SuppressWarnings("all")
 public class QueuesUsingStack {
 
-    private Stack<Integer> stack;
+    private final Stack<Integer> stack;
 
     public QueuesUsingStack() {
         stack = new Stack<>();
